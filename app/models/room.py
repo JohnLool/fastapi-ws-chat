@@ -18,9 +18,6 @@ class RoomOrm(Base):
     user_1_id: Mapped[int] = mapped_column() # must be less than user_2_id
     user_2_id: Mapped[int] = mapped_column()
 
-    name: Mapped[str] = mapped_column(String(100), nullable=False)
-    description: Mapped[str] = mapped_column(String(255), default="", nullable=False)
-
     messages: Mapped[List["Message"]] = relationship(
         back_populates="room", cascade="all, delete-orphan"
     )
