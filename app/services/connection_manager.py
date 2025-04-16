@@ -15,3 +15,6 @@ class ConnectionManager:
     async def broadcast(self, room_id: int, message: str):
         for connection in self.active_connections.get(room_id, []):
             await connection.send_text(message)
+
+
+connection_manager = ConnectionManager()
